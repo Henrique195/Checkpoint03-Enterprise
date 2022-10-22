@@ -1,7 +1,22 @@
+using Checkpoint03_Enterprise.Models;
+using Microsoft.EntityFrameworkCore;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddControllers();
+
+builder.Services.AddDbContext<PacienteApiDbContext>(options =>
+{
+    options.UseOracle(
+        builder.Configuration["ConnectionStrings:PacienteApiDbContextConnection"]);
+});
+
+builder.Services.AddScoped<IPacienteRepository, PacienteRepository>();
+
 
 var app = builder.Build();
 
