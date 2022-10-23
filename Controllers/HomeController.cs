@@ -15,7 +15,18 @@ namespace Checkpoint03_Enterprise.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            PacienteModel model = new PacienteModel();
+
+            model.Name = "claudio";
+            model.Email = "claudio@hotmail.com";
+            model.Password = "senha";
+            model.StreetName = "voluntarios";
+            model.StreetNumber = 25;
+            model.Neighborhood = "Santana";
+            model.City = "Sao paulo";
+            model.Country = "Brasil";
+
+            return View(model);
         }
 
         public IActionResult Privacy()
