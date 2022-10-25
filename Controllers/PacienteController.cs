@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Checkpoint03_Enterprise.Controllers
 {
     [ApiController]
-    [Route("/api/[controller]")]
+    [Route("/api/pacienteController")]
     public class PacienteController : ControllerBase
     {
         private readonly ILogger<PacienteController> _logger;
