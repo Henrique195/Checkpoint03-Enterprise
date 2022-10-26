@@ -12,8 +12,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbContext<PacienteApiDbContext>(options =>
 {
-    options.UseOracle(
-        builder.Configuration["ConnectionStrings:PacienteApiDbContextConnection"]);
+     (options => options.UseSqlServer("Server=tcp:sqlserver-rm88822.database.windows.net,1433;Initial Catalog=Acallme;Persist Security Info=False;User ID=admsql;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"));
 });
 
 builder.Services.AddScoped<IPacienteRepository, PacienteRepository>();
